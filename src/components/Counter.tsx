@@ -1,59 +1,39 @@
-import React from 'react';
-import '../components/style.css';
+import React, {useState} from 'react';
+import './styles/style.css';
+import {Display} from "./Display";
+import {Button} from "./Button";
 
-type TextAreaPropsType = {
-    value: number;
-    isMaxValue: boolean;
-};
 
-export const Counter = () => {
-    const [value, setValue] = React.useState(0);
+export const Counter: React.FC = () => {
+    const [value, setValue] = useState(0);
     const maxValue = 5;
-    const [isResetDisabled, setIsResetDisabled] = React.useState(true);
-    const [isIncDisabled, setIsIncDisabled] = React.useState(false);
+    const isResetDisabled=value===0
+    const isIncDisabled=value === maxValue
 
     const onIncBtnClickHandler = () => {
         if (value < maxValue) {
             const newValue = value + 1;
             setValue(newValue);
-            setIsResetDisabled(false);
 
-            if (newValue === maxValue) {
-                setIsIncDisabled(true); // Блокируем кнопку INC, если достигнут maxValue
-            }
+
+
         }
     };
 
     const onResBtnClickHandler = () => {
         setValue(0);
-        setIsResetDisabled(true);
-        setIsIncDisabled(false); // Снимаем блокировку с кнопки INC
+
     };
 
     return (
         <div>
-            <TextArea value={value} isMaxValue={value === maxValue} />
+            <Display value={value} isMaxValue={value === maxValue}/>
             <div className='wrapper'>
-                <button className='btn' onClick={onIncBtnClickHandler} disabled={isIncDisabled}>
-                    INC
-                </button>
-                <button className='btn' onClick={onResBtnClickHandler} disabled={isResetDisabled}>
-                    RES
-                </button>
+                <Button className='btn' onClick={onIncBtnClickHandler} disabled={isIncDisabled}>INC</Button>
+                <Button className='btn' onClick={onResBtnClickHandler} disabled={isResetDisabled}>RES</Button>
             </div>
         </div>
     );
 };
 
-const TextArea: React.FC<TextAreaPropsType> = ({ value, isMaxValue }) => {
-    return (
-        <div
-            className='styledOutput'
-            style={{
-                color: isMaxValue ? 'red' : 'black', // Изменяем цвет текста при достижении maxValue
-            }}
-        >
-            {value}
-        </div>
-    );
-};
+
