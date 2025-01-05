@@ -6,11 +6,12 @@ import {SetCounter} from "./components/setCounterComponents/SetCounter";
 
 function App() {
     //functionality of Counter
+    let savedValue;
     const [value, setValue] = useState(() => {
-        const savedValue = localStorage.getItem('Increment Value');
+         savedValue = localStorage.getItem('Max Value');
         return savedValue ? JSON.parse(savedValue) : 0;
     });
-    let stopValue = 5;
+    let stopValue = savedValue;
     const isResetDisabled = value === 0
     const isIncDisabled = value === stopValue
 
@@ -38,8 +39,8 @@ function App() {
     })
 
     const [startValue, setStartValue] = useState(() => {
-        const savedValue = localStorage.getItem('Start Value');
-        return savedValue ? JSON.parse(savedValue) : 0;
+        const newStartValue = localStorage.getItem('Start Value');
+        return newStartValue ? JSON.parse(newStartValue) : 0;
     })
 
 
