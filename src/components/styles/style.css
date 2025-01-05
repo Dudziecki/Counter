@@ -1,10 +1,11 @@
-.styledOutput{
+.styledOutput {
     background-color: #63dbfd;
     padding: 20px;
     font-size: 40px;
     border-radius: 5px;
 }
-.wrapper{
+
+.wrapper {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -13,12 +14,68 @@
     border-radius: 5px;
     padding: 10px;
 }
-.btn{
+
+.btn {
     background-color: #63dbfd;
-    border:none;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-size: 20px;
+
+}
+
+.maxValue {
+    color: red;
+}
+
+.CounterStyled {
+    text-align: center;
+    margin: 0 auto;
+    align-items: center;
+    border: 2px solid #63dbfd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+
+}
+
+.CounterContainer {
+
+    padding: 10px;
+}
+
+.InputContainerStyled:first-child {
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 5px;
+}
+
+.ButtonContainerStyled {
+    border: 2px solid #63dbfd;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+
+.label {
+    color: #63dbfd;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+
+.InputContainer {
+    border: 2px solid #63dbfd;
+    border-radius: 5px;
+    padding: 10px;
+}
+.InputStyled{
+    border: 2px solid #63dbfd;
     border-radius: 5px;
     padding: 5px;
 }
-.maxValue{
-    color:red;
+.InputStyled:focus {
+    border: 2px solid #0c5f77;
+    outline: none;
 }
