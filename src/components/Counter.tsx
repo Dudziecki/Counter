@@ -15,8 +15,6 @@ export const Counter: React.FC = () => {
             const newValue = value + 1;
             setValue(newValue);
 
-
-
         }
     };
 
@@ -26,7 +24,7 @@ export const Counter: React.FC = () => {
     };
 
     return (
-        <div>
+        <div className='CounterStyle'>
             <Display value={value} isMaxValue={value === maxValue}/>
             <div className='wrapper'>
                 <Button className='btn' onClick={onIncBtnClickHandler} disabled={isIncDisabled}>INC</Button>

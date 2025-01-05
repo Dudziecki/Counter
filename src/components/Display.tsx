@@ -1,7 +1,7 @@
 import React from "react";
 type TextAreaPropsType = {
-    value: number;
-    isMaxValue: boolean;
+    value?: number;
+    isMaxValue?: boolean;
 };
  export const Display: React.FC<TextAreaPropsType> = ({ value, isMaxValue }) => {
     return (
