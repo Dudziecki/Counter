@@ -3,6 +3,7 @@
     padding: 20px;
     font-size: 40px;
     border-radius: 5px;
+    margin: 0;
 }
 
 .wrapper {
@@ -70,12 +71,19 @@
     border-radius: 5px;
     padding: 10px;
 }
-.InputStyled{
+
+.InputStyled {
     border: 2px solid #63dbfd;
     border-radius: 5px;
     padding: 5px;
 }
+
 .InputStyled:focus {
     border: 2px solid #0c5f77;
     outline: none;
+}
+
+.Error {
+    background-color: rgba(244, 67, 54, 0.56);
+    border: 2px solid red;
 }

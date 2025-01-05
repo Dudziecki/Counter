@@ -15,10 +15,14 @@ export const SetCounter: React.FC = () => {
         const savedValue = localStorage.getItem('Start Value');
         return savedValue ? JSON.parse(savedValue) : 0;
     })
+    let[error,setError]=useState(false)
 
 
     const startValueClickHandler=()=>{
-        if(startValue<0 || maxValue < 0 || startValue >= maxValue)return
+        if(startValue<0 || maxValue < 0 || startValue >= maxValue){
+            setError(!error)
+            return
+        }
         localStorage.setItem('Max Value', JSON.stringify(maxValue));
         localStorage.setItem('Start Value', JSON.stringify(startValue));
     }
@@ -29,11 +33,13 @@ export const SetCounter: React.FC = () => {
                     label='max value'
                     value={maxValue}
                     onChange={setMaxValue}
+                    className={error? 'Error': 'InputStyled'}
                 />
                 <InputComponent
                     label='start value'
                     value={startValue}
                     onChange={setStartValue}
+                    className={error? 'Error': 'InputStyled'}
                 />
             </div>
 

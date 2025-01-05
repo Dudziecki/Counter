@@ -24,7 +24,7 @@ export const Counter: React.FC = () => {
     };
 
     return (
-        <div className='CounterStyle'>
+        <div className='CounterStyled'>
             <Display value={value} isMaxValue={value === maxValue}/>
             <div className='wrapper'>
                 <Button className='btn' onClick={onIncBtnClickHandler} disabled={isIncDisabled}>INC</Button>
