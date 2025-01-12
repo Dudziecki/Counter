@@ -1,24 +1,32 @@
 import React from 'react';
-import '../styles/style.css'
 
-type InputComponentPropsType = {
-    label: string
-    value: number
-    onChange?: (value: number) => void
-    className: string
-}
-export const InputComponent:React.FC<InputComponentPropsType> = ({label,value,onChange,className}) => {
+type InputComponentProps = {
+    label: string;
+    value: number;
+    onChange: (value: number) => void;
+    className: string;
+    isError: boolean;
+};
+
+export const InputComponent: React.FC<InputComponentProps> = ({
+                                                                  label,
+                                                                  value,
+                                                                  onChange,
+                                                                  className,
+                                                                  isError
+                                                              }) => {
     return (
-        <div className='InputContainerStyled'>
-            <label htmlFor="valueType" className='label'>{label}:</label>
-            <input type="number"
-                   name='valueType'
-                   value={value}
-                   className={className}
-                   onChange={(e) => {
-                if (onChange) onChange(Number(e.target.value));
-            }}/>
+        <div className={className}>
+            <label>{label}</label>
+            <input
+                type="number"
+                value={value}
+                onChange={(e) => onChange(Number(e.target.value))}
+                style={{
+                    border: isError ? '2px solid red' : '1px solid black',
+                    backgroundColor: isError ? 'rgba(255, 0, 0, 0.1)' : 'white'
+                }}
+            />
         </div>
     );
 };
-
