@@ -63,6 +63,7 @@
     color: #63dbfd;
     font-weight: bold;
     font-size: 15px;
+    margin-right: 10px;
 
 }
 
@@ -73,7 +74,7 @@
 }
 
 .InputStyled {
-    border: 2px solid #63dbfd;
+
     border-radius: 5px;
     padding: 5px;
 }

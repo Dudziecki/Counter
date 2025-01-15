@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { Counter } from "./components/counterComponents/Counter";
-import { SetCounter } from "./components/setCounterComponents/SetCounter";
+import { Counter } from "./components/Counter";
+import { SetCounter } from "./components/SetCounter";
 
 function App() {
     const [value, setValue] = useState(() => {
@@ -21,6 +21,7 @@ function App() {
 
     const [isSet, setIsSet] = useState(true);
     const [isError, setIsError] = useState(false);
+    const [isButtonsDisabled, setIsButtonsDisabled] = useState(false);
 
     useEffect(() => {
         const storedStartValue = localStorage.getItem('Start Value');
@@ -37,13 +38,15 @@ function App() {
     useEffect(() => {
         if (startValue < 0 || maxValue < 0 || startValue >= maxValue) {
             setIsError(true);
+            setIsButtonsDisabled(true);
         } else {
             setIsError(false);
+            setIsButtonsDisabled(false);
         }
     }, [startValue, maxValue]);
 
-    const isResetDisabled = value === 0;
-    const isIncDisabled = value === maxValue;
+    let isResetDisabled = value === startValue || isButtonsDisabled || !isSet;
+    let isIncDisabled = value === maxValue || isButtonsDisabled || !isSet;
 
     const onIncBtnClickHandler = () => {
         if (value < maxValue) {
@@ -57,7 +60,8 @@ function App() {
     }, [value]);
 
     const onResBtnClickHandler = () => {
-        setValue(0);
+        const newStartValue = localStorage.getItem('Start Value');
+        if (newStartValue) setValue(JSON.parse(newStartValue));
     };
 
     const startValueClickHandler = () => {
