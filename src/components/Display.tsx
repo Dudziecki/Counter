@@ -16,7 +16,8 @@ export const Display: React.FC<TextAreaPropsType> = ({ value, isMaxValue, isSet,
                 color: isMaxValue ? 'red' : 'black',
             }}
         >
-            {isError ? 'Incorrect input' : isSet ? value : 'Please enter the values and click set'}
+            {isError ? <span style={{color:'red'}}>Incorrect input</span> : isSet ? value : <span style={{fontSize:'25px'}}>enter the values and click set</span>}
+
         </h1>
     );
 };

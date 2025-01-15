@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/style.css';
+import './style.css';
 import { InputComponent } from "./InputComponent";
-import { Button } from "../Button";
+import { Button } from "./Button";
 
 type SetCounterProps = {
     startValue: number;

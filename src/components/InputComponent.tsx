@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 type InputComponentProps = {
     label: string;
     value: number;
@@ -17,7 +18,7 @@ export const InputComponent: React.FC<InputComponentProps> = ({
                                                               }) => {
     return (
         <div className={className}>
-            <label>{label}</label>
+            <label className={'label'}>{label}</label>
             <input
                 type="number"
                 value={value}

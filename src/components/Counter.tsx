@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import '../styles/style.css';
+import './style.css';
 
-import {Button} from "../Button";
-import {Display} from "../counterComponents/Display";
+import {Button} from "./Button";
+import {Display} from "./Display";
 
 type CounterPropsType = {
     value: number
